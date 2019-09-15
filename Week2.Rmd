@@ -1,0 +1,41 @@
+---
+title: "Data Products Week 2"
+author: "Jared Allen"
+date: "14/09/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+```
+
+# Where is Robin Hood at the moment?
+
+That Wiley Robin Hood is always hidin from the Sheriff of Nottingham, this map shows where he has decided to hide at the moment.
+
+```{r hoodmap, echo=FALSE}
+
+nottlat <- 52.906425
+nottlng <- -1.253231
+
+funmap <- data.frame(lat=runif(1,min=nottlat-.1, max=nottlat+.1),
+                 lng=runif(1,min=nottlng-.1, max=nottlng+.1))
+
+hoodicon <- 
+  makeIcon(
+    iconUrl = "https://stt.wiki/w/images/thumb/a/a4/Robin_Hood_Full.png/262px-Robin_Hood_Full.png",
+    iconWidth = 50, iconHeight=80,
+    iconAnchorX = 25, iconAnchorY = 16
+  )
+
+map <- 
+  funmap %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = hoodicon, popup="Robin Hood")
+
+map
+
+
+```
