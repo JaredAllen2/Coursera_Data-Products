@@ -1,0 +1,18 @@
+---
+title: "Week3"
+author: "Jared Allen"
+date: "16/09/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+```
+
+
+```{r pressure, echo=FALSE}
+plot_ly(x=iris$Sepal.Length, y=iris$Sepal.Width, z=iris$Petal.Length, color=iris$Species,alpha=0.8)
+
+```
+
