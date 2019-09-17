@@ -9,12 +9,29 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 library(dplyr)
 library(plotly)
+library(readr)
+library(rjson)
+
 ```
 
 # Week 3 Peer-graded assessment
-An exploration of dataset through the medium of plotly graphs
+
+##
+An exploration of gen1 Pokemon through the medium of plotly graphs
+
+A database of the Gen1 pokemon was borrowed from github for the purpose of this analysis:
+
+```{r dta_import, warning=FALSE, message=FALSE}
+pokemon_gen1 <- read_csv("https://raw.githubusercontent.com/lgreski/pokemonData/master/gen01.csv")
+
+head(pokemon_gen1)
+
+```
 
 
-```{r}
+## Graph of Pokemon statistics - Attack, Defense, Speed, HP and Principal Type
+
+```{r pokemon_graph, warning=FALSE}
+plot_ly(data=pokemon_gen1, type = 'scatter3d', mode = 'markers', x=~Attack, y=~Defense, z=~Speed, size=~HP, color=~Type1)
 
 ```
