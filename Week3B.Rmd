@@ -1,0 +1,37 @@
+---
+title: "Week3B"
+author: "Jared Allen"
+date: "17/09/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(plotly)
+library(readr)
+library(rjson)
+
+```
+
+# Week 3 Peer-graded assessment
+
+##
+An exploration of gen1 Pokemon through the medium of plotly graphs
+
+A database of the Gen1 pokemon was borrowed from github for the purpose of this analysis:
+
+```{r dta_import, warning=FALSE, message=FALSE}
+pokemon_gen1 <- read_csv("https://raw.githubusercontent.com/lgreski/pokemonData/master/gen01.csv")
+
+head(pokemon_gen1)
+
+```
+
+
+## Graph of Pokemon statistics - Attack, Defense, Speed, HP and Principal Type
+
+```{r pokemon_graph, warning=FALSE}
+plot_ly(data=pokemon_gen1, type = 'scatter3d', mode = 'markers', x=~Attack, y=~Defense, z=~Speed, size=~HP, color=~Type1)
+
+```
