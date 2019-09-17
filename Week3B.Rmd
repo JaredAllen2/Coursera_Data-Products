@@ -1,0 +1,20 @@
+---
+title: "Week3B"
+author: "Jared Allen"
+date: "17/09/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(plotly)
+```
+
+# Week 3 Peer-graded assessment
+An exploration of dataset through the medium of plotly graphs
+
+
+```{r}
+
+```
